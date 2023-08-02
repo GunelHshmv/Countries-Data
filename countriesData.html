@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
+    <title>Document</title>
+</head>
+<style>
+    #btnDiv1:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#btnDiv2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
+<body style="background-color:rgb(255, 252, 252);">
+    <div id="commonDiv" class=" d-flex flex-column justify-content-center align-items-center ">
+        <div class="mt-5 mb-3" id="headPart" ><h1><i><a style="color: orange; text-decoration:none" href="">Countries Data</a></i></h1></div>
+
+
+
+        <div id="inpPart" class=" container d-flex flex-row justify-content-center mb-3 ">
+            <div id="inpDiv" class="input-group input-group-lg" >
+                
+                <input class="container-fluid  input-group-text" id="inp" placeholder="Enter Countries Name" style="width: 96%; border: 1px solid orange; border-radius: 24px;"/>
+            </div>
+           
+        </div>
+        <div class="d-flex container justify-content-center" style="gap: 60px;">
+           <div id="btnDiv1"  style="width: 28%; background-color:orange; border-radius: 24px;">
+                <button type="button" id="btn" class="container-fluid  btn  btn-lg text-white" ><b>Population</b></button>
+            </div>
+            <div id="btnDiv2"  style="width: 28%; background-color:orange; border-radius: 24px;">
+                <button type="button" id="btnA" class="container-fluid  btn  btn-lg text-white" ><b>Area</b></button>
+            </div> 
+        </div>
+          
+
+
+
+        <div id="countries" class="d-flex  row container-fluid justify-content-center mt-4">
+            <h5 id="h3" class="d-flex justify-content-center ">Loading...</h5>
+            <!-- <div id="statistiksDiv" class="bg-primary d-none justify-content-around mb-3" style="height: 32px;">
+                <div id="countryName" class="bg-success text-center" style="width: 18%;">Aze</div>
+                <div id="coloredDiv"class="bg-warning" style="width: 54%;">size</div>
+                <div id="count" class="bg-danger text-center" style="width: 18%;"> Count</div>
+            </div> -->
+        </div>
+
+        <div id="data">
+            <h2 id="h2"></h2>
+            <p id="p"></p>
+        </div>
+    </div>
+</body>
+<script src="../javascript/countries.js"></script>
+</html>
