@@ -8,9 +8,6 @@ const h2 = document.querySelector("#h2");
 const p = document.querySelector("#p");
 const dataDiv = document.querySelector("#div");
 const commonDiv=document.querySelector('#commonDiv');
-// const statistiksDiv=document.querySelector('#statistiksDiv');
-// const countryName=document.querySelector('#countryName');
-// const coloredDiv=document.querySelector('#coloredDiv');
 const count=document.querySelector('#count');
 
 
@@ -29,8 +26,6 @@ window.onload = function () {
   fetch("https://restcountries.com/v2/all")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
-        
         dataArr=data
       dataArr.map((country) => {
         area.push(country.area)
@@ -47,7 +42,6 @@ window.onload = function () {
     })
     .catch((error) => console.error("Hata:", error));
 };
-   
 function createElement(country){
  let largeDiv=document.createElement('div')
     largeDiv.className='m-1'
@@ -70,7 +64,6 @@ function createElement(country){
     btn.style.color="white"
     btn.style.backgroundColor="orange"
     btn.style.marginLeft="110px"
-    // btn.style.marginBottom="10px"
     btn.style.width="100px"
     btn.style.borderRadius="24px"
     let countryDiv = document.createElement("div");
@@ -84,21 +77,13 @@ function createElement(country){
     upperDiv.append(dataDiv)
     largeDiv.append(countryDiv,upperDiv,btn)
     countriesDiv.appendChild(largeDiv);
-
-
 btn.addEventListener('click',getData);
-
 }
-
 let errDiv = document.createElement("div");
 
  function filterFunc(e) {
-    console.log(e.target.value)
-    console.log([...e.target.value][0])
   if ([...e.target.value][0]==([...inp.value][0].toUpperCase())  ) {
     errDiv.innerHTML=""
-    // const response = await fetch("https://restcountries.com/v2/all");
-    // const data = await response.json();
     let countries = dataArr.filter((country) => {
       if (country.name.includes(inp.value)) {
         countriesDiv.innerHTML = "";
@@ -107,7 +92,6 @@ let errDiv = document.createElement("div");
     });
     countries.map((country) => {
         createElement(country)
-        // console.log(country.alpha2Code)
     });
   } else {
     errDiv.innerHTML = "<h2>First Letter of Country Name Should Be Upper</h2>";
@@ -125,18 +109,12 @@ let errDiv = document.createElement("div");
 }
 
 function getData(e){
-  console.log("ks")
     commonDiv.innerHTML=""
     commonDiv.className=""
-
     commonDiv.innerHTML="<h3><b>Loading...</b></h3>"
-    // fetch("https://restcountries.com/v2/all")
-    // .then((response) => response.json())
-    // .then((data) => {
       dataArr.map((country) => {
         if(e.target.parentElement.id==country.alpha2Code){
             commonDiv.innerHTML=""
-
             let back=document.createElement('button')
             back.innerHTML="Back"
             back.className="bg-primary"
@@ -148,7 +126,6 @@ function getData(e){
                          Capital of ${country.name} is <b>${country.capital}</b>.<br/>
                          Population of ${country.name} is  <b>${country.population}</b>            
             `
-            // console.log( country.name,country.alpha2Code,country.area,country.borders,country.capital,country.region)
         commonDiv.append(h2,p,back)
         back.addEventListener('click',()=>{
             location.reload()
@@ -157,42 +134,22 @@ function getData(e){
       });
 }
 
-
-
-
-
-
-
-
-
 function statistiksData(item){
-
-
   let statistiksDiv=document.createElement('div');
   statistiksDiv.className='container d-flex justify-content-around mb-5'
   statistiksDiv.style.height="32px";
-
   let countryName=document.createElement('div');
-  // countryName.style.paddingLeft="100px";
   countryName.style.width="20%";
 
-
   let coloredDiv=document.createElement('div');
-  // coloredDiv.className='bg-warning '
   coloredDiv.style.width="84%";
   coloredDiv.className="text-center"
-  // for (let i = item; i < 0; i-=100000) {
-  
-    
-  // }
+
   let sizeDiv=document.createElement('div');
-  // sizeDiv.style.width="90%";
   sizeDiv.style.height="100%";
   coloredDiv.style.border="1px solid"
   sizeDiv.className="bg-warning ";
   coloredDiv.appendChild(sizeDiv);
-
-
 
   let count=document.createElement('div');
   count.id='count'
@@ -225,7 +182,6 @@ function statistiksData(item){
     }
     else if(el.area==item ){
       sizeDiv.style.width=`${item*4/100000}px`
-      //  coloredDiv.textContent=`${item*4/100000}px`
       countryName.innerHTML=`<b>${el.name}</b>`
       count.innerHTML=`<b>${item}</b>`
     }
